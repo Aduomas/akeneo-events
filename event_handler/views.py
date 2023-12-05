@@ -12,6 +12,10 @@ def event_listener(request):
         # Parse the JSON body of the request
         event_data = json.loads(request.body)
 
+        # log the request body for debugging
+        print(event_data)
+
+        return JsonResponse({"status": "success"}, status=200)
         # Assuming event_data is a dictionary containing a list of events
         for event in event_data.get("events", []):
             # Create an EventLog object for each event
